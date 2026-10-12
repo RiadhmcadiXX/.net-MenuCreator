@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: menu-creator-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: menu_creator_db
+      POSTGRES_USER: menu_creator_user
+      POSTGRES_PASSWORD: AzertyBermude@1
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - menu_creator_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  menu_creator_postgres_data:
